@@ -1,0 +1,15 @@
+{
+  "name": "com.qduckgame.qduckrender",
+  "version": "0.0.1",
+  "displayName": "QDuckRender",
+  "description": "This is an example package",
+  "unity": "6000.0",
+  "documentationUrl": "https://github.com/QDuckGame/QDuckRender",
+  "changelogUrl": "https://github.com/QDuckGame/QDuckRender",
+  "licensesUrl": "https://github.com/QDuckGame/QDuckRender",
+  "author": {
+    "name": "QDuck",
+    "email": "",
+    "url": "https://github.com/QDuckGame"
+  }
+}
