@@ -65,6 +65,7 @@ half3 DirectLighting(BRDFData brdfData, Light light, half3 normalWS, half3 viewD
 }
 
 
+
 half4 StandardPBR(InputData inputData, SurfaceData surfaceData)
 {
     #if defined(_SPECULARHIGHLIGHTS_OFF)
@@ -158,5 +159,24 @@ half4 StandardPBR(InputData inputData, SurfaceData surfaceData)
 #else
     return CalculateFinalColor(lightingData, surfaceData.alpha);
 #endif
+}
+
+half4 StandardPBR(InputData inputData, half3 albedo, half metallic, half3 specular,
+    half smoothness, half occlusion, half3 emission, half alpha)
+{
+    SurfaceData surfaceData;
+
+    surfaceData.albedo = albedo;
+    surfaceData.specular = specular;
+    surfaceData.metallic = metallic;
+    surfaceData.smoothness = smoothness;
+    surfaceData.normalTS = half3(0, 0, 1);
+    surfaceData.emission = emission;
+    surfaceData.occlusion = occlusion;
+    surfaceData.alpha = alpha;
+    surfaceData.clearCoatMask = 0;
+    surfaceData.clearCoatSmoothness = 1;
+
+    return StandardPBR(inputData, surfaceData);
 }
 #endif
